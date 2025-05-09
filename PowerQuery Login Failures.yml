@@ -1,0 +1,24 @@
+title: PQ Login Failures
+description: This will show all failed logins.
+date: 9/5/2025
+modified:
+mitreID:
+   technique:
+   tactic:     
+   subtechnique:
+operating_system: Windows, Linux
+query:
+//This will show all failed logins
+event.category = 'logins'
+| let rfc1918 = not ($src.endpoint.ip.address matches "((127\\..*)|(192\\.168\..*)|(10\\..*)|(172\\.1[6-9]\\..*)|(172\\.2[0-9]\\..*)|(172\\.3[0-1]\\..*)).*")
+| filter rfc1918 = true
+| group NumberOfFailedAttempts = count(event.login.loginIsSuccessful=false)
+by event.login.userName, endpoint.name, src.endpoint.ip.address, event.login.accountDomain, event.login.type, site.name
+| sort -NumberOfFailedAttempts
+false_positives:
+   - 
+tags:
+   - 
+references:
+   -
+status: stable
