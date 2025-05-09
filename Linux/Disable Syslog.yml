@@ -1,0 +1,17 @@
+title: Disable Syslog
+description: Detect disabling of Linux Syslog service.
+date: 09/05/2025
+modified: 
+mitre:
+   tactic: Defense Evasion
+   technique: T1562
+   subtechnique: 
+operating_system: linux
+query: TgtProcName In Contains ("service","chkconfig","systemctl") AND TgtProcCmdLine
+  In Contains ("rsyslog stop","off rsyslog","stop rsyslog","disable rsyslog", "syslog stop","off syslog","stop syslog","disable syslog")
+false_positives:
+ - 
+tags:
+ - 
+references:
+ - 
