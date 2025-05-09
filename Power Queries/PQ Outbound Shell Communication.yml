@@ -1,6 +1,6 @@
 title: PQ Outbound Connection Shell by Hostname
 description: Detects outbound communications, grouped by hostname and process that initiated communication.
-date: 08/18/2022
+date: 09/05/2025
 modified:
 mitreID: 
    technique:
