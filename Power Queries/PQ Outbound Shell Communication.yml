@@ -6,7 +6,7 @@ mitreID:
    technique:
    tactic:     
    subtechnique: 
-operating_system: windows, 
+operating_system: windows, linux
 query: 
 // Query for Outbound communications, grouped by hostname and process that initiated communication 
 src.process.name matches "powershell|cmd|bash|sh|zsh|python|perl|curl|wget|nc|netcat"
